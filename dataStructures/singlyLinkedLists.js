@@ -1,3 +1,14 @@
+// BIG O
+// Insertion - depends - O(1)[unshift] or O(n)
+// Removal - depends - O(1) or O(n)
+// Searching - O(n)
+// Access - (n)
+
+// THE IDEA OF A LIST DATA STRUCTURE THAT CONSISTS OF NODES IS
+// THE FOUNDATION FOR OTHER DATA STRUCTURES LIKE STACKS & QUEUES;
+
+// SINGLE LINKED LISTS ARE GOOD WHEN INSERSTION & DELETION ARE FREQUENTLY REQUIRED;
+
 class Node {
     constructor(val) {
         this.val = val;
@@ -105,20 +116,73 @@ class SinglyLinkedList {
     }
 
     remove(index) {
-        
+        if (index < 0 || index >= this.length) return undefined;
+        if (index === 0) return !!this.shift();
+        if (index === this.length - 1) return !!this.pop();
+        var previousNode = this.get(index - 1);
+        var removed = previousNode.next;
+
+        //  previousNode.next = previousNode.next.next;
+         previousNode.next = removed.next;
+        this.length--;
+        return removed;
     }
+
+    reverse() {
+        // [this.head, this.tail] = [this.tail, this.head]
+        let node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        
+        // var prev = null;
+        // while(node) {
+        //     var temp = node.next;
+        //       node.next = prev;
+        //     prev = node;
+        //     node = temp;
+        // }
+
+        var next;
+        var prev = null;
+        for (var i = 0; i < this.length; i++){
+            next = node.next;
+              node.next = prev;
+            prev = node;
+            node = next;
+
+        }
+        
+        return this;
+    }
+
+    print() {
+        const arr = [];
+        var current = this.head;
+        while(current) {
+              arr.push(current.val)
+            current = current.next;
+        }
+
+        console.log(arr);
+    }
+
+
     
 }
 
 let list = new SinglyLinkedList()
-list.push('HELLO')
-list.push('GOODBYE')
-list.push('!')
-list.push('<3')
-list.push(':)')
+list.push(1)
+list.push(2)
+list.push(3)
+list.push(4)
+list.push(5)
 // list.get(3)
 console.log(list)
-console.log(list.insert(5, 'hello2'))
-// console.log(list)
+// list.remove(1)
+// console.log(list.remove(1))
+list.print()
+list.reverse()
+console.log(list,'reversed')
+list.print()
 // console.log(list.get(0))
 // console.log(list.head)
