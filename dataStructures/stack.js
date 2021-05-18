@@ -1,5 +1,10 @@
 // LIFO - LAST IN FIRST OUT
 // can implement with array or link list
+// BIG O
+// INSERTION - O(1)
+// REMOVAL - 0(1)
+// SEARCHING - O(N)
+// ACCESS - O(N)
 
 class Node {
     constructor(val) {
