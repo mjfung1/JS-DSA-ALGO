@@ -1,6 +1,6 @@
 // BIG O
-// Insertion - depends - O(1)[unshift] or O(n)
-// Removal - depends - O(1) or O(n)
+// Insertion - O(1)
+// Removal - depends - O(1)[SHIFT] or O(n)[POP]
 // Searching - O(n)
 // Access - (n)
 
@@ -117,8 +117,8 @@ class SinglyLinkedList {
 
     remove(index) {
         if (index < 0 || index >= this.length) return undefined;
-        if (index === 0) return !!this.shift();
-        if (index === this.length - 1) return !!this.pop();
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
         var previousNode = this.get(index - 1);
         var removed = previousNode.next;
 
