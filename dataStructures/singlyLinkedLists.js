@@ -69,17 +69,56 @@ class SinglyLinkedList {
         return this;
     }
 
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        var counter = 0;
+        var current = this.head;
+        while (counter < index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
+
+    set(index, val) {
+        var foundNode = this.get(index);
+        if (foundNode) {
+              foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        var newNode = new Node(val);
+        // -1 because we need the previous node;
+        var prev = this.get(index - 1);
+        var temp = prev.next;
+         prev.next = newNode;
+         newNode.next = temp;
+        this.length++;
+        return true;
+    }
+
+    remove(index) {
+        
+    }
+    
 }
 
 let list = new SinglyLinkedList()
-list.push('hello')
-// list.push('there')
-// list.push('?')
-list.unshift('second')
-// list.unshift('first')
+list.push('HELLO')
+list.push('GOODBYE')
+list.push('!')
+list.push('<3')
+list.push(':)')
+// list.get(3)
 console.log(list)
-
-// console.log(list.pop(), 'popped')
-// console.log(list.pop(), 'popped')
-// console.log(list.pop(), 'popped')
-console.log(list)
+console.log(list.insert(5, 'hello2'))
+// console.log(list)
+// console.log(list.get(0))
+// console.log(list.head)
