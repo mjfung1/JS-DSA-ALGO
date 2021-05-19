@@ -6,6 +6,8 @@
 // SEARCHING - O(N)
 // ACCESS - O(N)
 
+// WHY STACK - UNDO/REDO, INTERNET ROUTING HISTORY
+// NO BUILT IN DS IN JS. BUT SIMPLE TO IMPLEMENT WITH ARRAY.
 class Node {
     constructor(val) {
         this.val = val;
@@ -48,7 +50,8 @@ class Stack {
 
         this.first = poppedNode.next;
         this.size--;
-         poppedNode.next = null;
+        // dont need it b/c we're returning value. no ref
+        //  poppedNode.next = null;
         
         return poppedNode.val;
     }
