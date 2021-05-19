@@ -2,7 +2,7 @@
 // background tasks, printing/task processing
 // FIFO - FIRST IN FIRST OUT
 // BIG O 
-// INSERTION/REMOVAL - O(1);
+// INSERTION/REMOVAL - O(1);  TAKEAWAY - MOST IMPORTANT
 // SEARCHING/ACCESS - O(N);
 class Node {
     constructor(val) {

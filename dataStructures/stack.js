@@ -1,8 +1,9 @@
 // LIFO - LAST IN FIRST OUT
 // can implement with array or link list
 // BIG O
-// INSERTION - O(1)
-// REMOVAL - 0(1)
+// INSERTION - O(1) - MOST IMPORTANT
+// REMOVAL - 0(1) - MOST IMPORTANT
+
 // SEARCHING - O(N)
 // ACCESS - O(N)
 
