@@ -1,23 +1,15 @@
-// why binary heaps? a type of binary tree
-// used to implement priority queues - commonly used
-// also for graph traversal algorithms
-// similar but different from bst (leftChild - small) (rightChild - big)
-// heaps are as compact as possible
+// what is it?
+//  - a data structure where each element 
+//   has a priority; using a HEAP; 
 
-// ways to implement heap??
-// can use a tree but theres a much easier way thanks to its compactness;
-
-// the answer is the array by using a formula;
-// for parent n -> leftChild 2n+1 ; rightChild 2n+2
-// INVERSELY, for any child n, its parents index Floor( (n-1) / 2 )
-
-class MaxBinaryHeap {
+class PriorityQueue {
     constructor() {
         this.values = [];
     }
 
-    insert(element) {
-        this.values.push(element);
+    enqueue(value, priority) {
+        let newNode = new Node(value, priority);
+        this.values.push(newNode);
         this.bubbleUp();
     }
 
@@ -28,23 +20,22 @@ class MaxBinaryHeap {
         while (idx > 0) {
             let parentIdx = Math.floor( (idx - 1) / 2);
             let parent = this.values[parentIdx];
-            if (element <= parent) break;
+            if (element.priority >= parent.priority) break;
             this.values[parentIdx] = element;
             this.values[idx] = parent;
             idx = parentIdx;
         }
     }
 
-    extractMax() {
-        //Edge case
-        const max = this.values[0];
+    dequeue() {
+        const min = this.values[0];
         const end = this.values.popped();
         if (this.values.length > 0) {
             this.values[0] = end;s
             this.sinkDown();
         }
 
-        return max;
+        return min;
     }
 
     sinkDown() {
@@ -60,7 +51,7 @@ class MaxBinaryHeap {
 
             if (leftChildIdx < length) {
                 leftChild = this.values[leftChildIdx];
-                if (leftChild > element) {
+                if (leftChild.priority < element.priority) {
                     swap = leftChildIdx;
                 }
             }
@@ -68,8 +59,8 @@ class MaxBinaryHeap {
             if (rightChild < length) {
                 rightChild = this.values[rightChildIdx];
                 if (
-                    (swap !== null & rightChild > leftChild) ||
-                    (swap === null & rightChild > element)
+                    (swap !== null & rightChild.priority < leftChild.priority) ||
+                    (swap === null & rightChild.priority < element.priority)
                 ) {
                     swap = rightChildIdx;
                 }
@@ -87,10 +78,9 @@ class MaxBinaryHeap {
 
 }
 
-let heap = new MaxBinaryHeap();
-heap.insert(55);
-heap.insert(40);
-// heap.insert(30);
-// heap.insert(80);
-heap.insert(60);
-console.log(heap);
+class Node {
+    constructor(value, priority) {
+        this.value = value;
+        this.priority = priority;
+    }
+}
