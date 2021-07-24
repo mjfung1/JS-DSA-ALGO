@@ -1,6 +1,10 @@
 // what is it?
 //  - a data structure where each element 
 //   has a priority; using a HEAP; 
+// Big O
+// Insertion, removal O(logN)
+// Searching O(N) - generally, don't use PQ for searching
+// for searching use BST not PQ.
 
 class PriorityQueue {
     constructor() {
@@ -82,5 +86,6 @@ class Node {
     constructor(value, priority) {
         this.value = value;
         this.priority = priority;
+        this.insertTime = Date.now();
     }
 }

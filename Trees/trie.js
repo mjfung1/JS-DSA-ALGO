@@ -62,19 +62,16 @@ class Trie {
        }
        return root.isTerminal;
    }
-
    wordsWithPrefix(prefix) {
        root = this.root;
 
        const arr = [];
        for (const child in root.children) {
             let result = '';
-            result += child;
-            
+            result += child;      
        }
        return arr;
    }
-
 }
 
 module.exports = {

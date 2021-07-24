@@ -4,7 +4,6 @@
 // Big O - BST
 // Insertion/Searching - O ( log n )
 
-
 class Node {
     constructor(value) {
         this.value = value;
@@ -65,7 +64,7 @@ class BinarySearchTree {
         return current;
     }
 
-        preorder() {
+    preorder() {
         const data = [];
         let current = this.root;
 
@@ -131,7 +130,3 @@ class BinarySearchTree {
     }
 
 }
-
-//        10
-//    5        13
-//  2   7    11   16
