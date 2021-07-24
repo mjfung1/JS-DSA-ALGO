@@ -1,6 +1,7 @@
 
+// with MAX HEAP;
 
-class PriorityQueue {
+class MaxPriorityQueue {
   constructor() {
     this.values = [];
   }

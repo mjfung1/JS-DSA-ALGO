@@ -1,6 +1,6 @@
 // MIN HEAP
 
-class PriorityQueue {
+class MinPriorityQueue {
     constructor() {
         this.values = [];
     }
@@ -76,7 +76,7 @@ class Node {
     }
 }
 
-let ER = new PriorityQueue();
+let ER = new MinPriorityQueue();
 ER.enqueue('common cold', 5)
 ER.enqueue('high on meth', 3)
 ER.enqueue('gunshot', 1)
